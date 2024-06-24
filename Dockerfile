@@ -8,12 +8,13 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 COPY ./app /code/app
 
-EXPOSE 8000
+EXPOSE 8080
 
-# CMD ["fastapi", "run", "app/main.py", "--port", "80"]
+# gcloud env var seems to be 8080
+CMD ["fastapi", "run", "app/main.py", "--port", "8080"]
 
 # default port 8000
-CMD ["fastapi", "run", "app/main.py"]
+# CMD ["fastapi", "run", "app/main.py"]
 
 # If running behind a proxy like Nginx or Traefik add --proxy-headers
 # CMD ["fastapi", "run", "app/main.py", "--port", "80", "--proxy-headers"]
